@@ -1,0 +1,53 @@
+in:
+  type: s3
+  access_key_id: ${secret:s3.access_key_id}
+  secret_access_key: ${secret:s3.secret_access_key}
+  bucket: bucket_name
+  path_prefix: path/to/KEN_ALL.CSV
+  use_modified_time: true
+  incremental: true
+  parser:
+    charset: SJIS
+    newline: CRLF
+    type: csv
+    skip_header_lines: 0
+    columns:
+    - name: col_01
+      type: string
+    - name: col_02
+      type: string
+    - name: col_03
+      type: string
+    - name: col_04
+      type: string
+    - name: col_05
+      type: string
+    - name: col_06
+      type: string
+    - name: col_07
+      type: string
+    - name: col_08
+      type: string
+    - name: col_09
+      type: string
+    - name: col_10
+      type: string
+    - name: col_11
+      type: string
+    - name: col_12
+      type: string
+    - name: col_13
+      type: string
+    - name: col_14
+      type: string
+    - name: col_15
+      type: string
+filters:
+  - type: add_time
+    to_column:
+      name: time
+      type: timestamp
+    from_value:
+      mode: upload_time
+out: {}
+exec: {}

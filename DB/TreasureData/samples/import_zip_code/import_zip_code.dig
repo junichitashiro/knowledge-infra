@@ -1,0 +1,20 @@
+timezone: Asia/Tokyo
+
+schedule:
+  daily>: 10:00:00
+
+_export:
+  td:
+    dest_db: db_name
+    dest_table: table_name
+
++prepare_table:
+  td_ddl>:
+  create_databases: ["${td.dest_db}"]
+  create_tables: ["${td.dest_table}"]
+  database: ${td.dest_db}
+
++load:
+  td_load>: config/load_zip_code.yml
+  database: ${td.dest_db}
+  table: ${td.dest_table}

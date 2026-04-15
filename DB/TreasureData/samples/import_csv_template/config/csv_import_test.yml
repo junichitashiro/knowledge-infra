@@ -1,0 +1,29 @@
+in:
+  type: s3
+  access_key_id: ${secret:s3.access_key_id}
+  secret_access_key: ${secret:s3.secret_access_key}
+  bucket: bucket_name
+  path_prefix: path/to/sample.csv
+  use_modified_time: true
+  incremental: true
+  parser:
+    charset: UTF-8
+    newline: LF
+    type: csv
+    skip_header_lines: 1
+    columns:
+    - name: area
+      type: string
+    - name: tel
+      type: string
+    - name: mail
+      type: string
+filters:
+  - type: add_time
+    to_column:
+      name: time
+      type: timestamp
+    from_value:
+      mode: upload_time
+out: {}
+exec: {}
