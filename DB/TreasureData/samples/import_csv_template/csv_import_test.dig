@@ -1,37 +1,37 @@
-timezone: Asia/Tokyo
+timezone: Asia/Tokyo
 
 schedule:
-  daily>: 10:00:00
+  daily>: 10:00:00
 
 _export:
-  td:
-    dest_db: test
-    dest_table: csv_import_test
-    tmp_table: tmp_csv_import_test
+  td:
+    dest_db: test
+    dest_table: csv_import_test
+    tmp_table: tmp_csv_import_test
 
 +drop_if_exist_table:
-  td_ddl>:
-  database: ${td.dest_db}
-  drop_tables: ["${td.dest_table}", "${td.tmp_table}"]
+  td_ddl>:
+  database: ${td.dest_db}
+  drop_tables: ["${td.dest_table}", "${td.tmp_table}"]
 
 +prepare_table:
-  td_ddl>:
-  database: ${td.dest_db}
-  create_databases: ["${td.dest_db}"]
-  create_tables: ["${td.dest_table}", "${td.tmp_table}"]
+  td_ddl>:
+  database: ${td.dest_db}
+  create_databases: ["${td.dest_db}"]
+  create_tables: ["${td.dest_table}", "${td.tmp_table}"]
 
 +load:
-  td_load>: config/csv_import_test.yml
-  database: ${td.dest_db}
-  table: ${td.tmp_table}
+  td_load>: config/csv_import_test.yml
+  database: ${td.dest_db}
+  table: ${td.tmp_table}
 
 +cast:
-  td>: csv_import_test.sql
-  database: ${td.dest_db}
-  engine: presto
-  insert_into: ${td.dest_table}
+  td>: csv_import_test.sql
+  database: ${td.dest_db}
+  engine: presto
+  insert_into: ${td.dest_table}
 
 +drop_tmp_table:
-  td_ddl>:
-  database: ${td.dest_db}
-  drop_tables: ["${td.tmp_table}"]
+  td_ddl>:
+  database: ${td.dest_db}
+  drop_tables: ["${td.tmp_table}"]

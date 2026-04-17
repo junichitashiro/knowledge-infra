@@ -1,7 +1,7 @@
 select
-  *
+  *
 from
-  ${tmp_table}
+  ${tmp_table}
 where
-  area = 'Tokyo'
+  area = 'Tokyo'
 ;

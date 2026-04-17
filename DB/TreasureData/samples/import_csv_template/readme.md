@@ -11,33 +11,33 @@ S3に配置したCSVファイルをTreasureDataにインポートする
 
 ### CSVファイル
 
-* sample.csv
-* AWSのS3バケット配下に配置
+- sample.csv
+- AWSのS3バケット配下に配置
 
 ### digファイル
 
-* csv_import_test.dig
-* ワークフローの設計書となるファイル
+- csv_import_test.dig
+- ワークフローの設計書となるファイル
 
 ### ymlファイル
 
-* csv_import_test.yml
-* CSVファイルの入出力設定を記載するファイル
-* configディレクトリ配下に配置する
+- csv_import_test.yml
+- CSVファイルの入出力設定を記載するファイル
+- configディレクトリ配下に配置する
 
 ### sqlファイル
 
-* csv_import_test.sql
-* 一時テーブルに対する処理内容を記載する
+- csv_import_test.sql
+- 一時テーブルに対する処理内容を記載する
 
 ### 補足
 
 #### time列
 
-* time列がないのでインポート時に追加する設定をymlファイルに記載する
+- time列がないのでインポート時に追加する設定をymlファイルに記載する
 
 #### レコードを絞る必要がない場合
 
-* sqlのwhere句を記載しない
-* td_loadの対象テーブルを一時テーブルから目的のテーブルに変更する
-* 後者の場合sqlファイルとdigの+cast: 以下の処理は不要になる
+- sqlのwhere句を記載しない
+- td_loadの対象テーブルを一時テーブルから目的のテーブルに変更する
+- 後者の場合sqlファイルとdigの+cast: 以下の処理は不要になる
