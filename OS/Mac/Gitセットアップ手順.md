@@ -105,7 +105,7 @@ git config --global user.email "GitHubで設定しているメールアドレス
 git config --global --list
 ```
 
-> user.name=Your Name  
+> user.name=Your Name
   user.email=your_email@address.com
 
 ---
@@ -122,11 +122,11 @@ git clone git@github.com:user_name/repository_name.git
 
 ### リモートリポジトリの設定を確認する
 
-* クローンしたリポジトリフォルダで実行する
+- クローンしたリポジトリフォルダで実行する
 
 ```bash
 git remote -v
 ```
 
-> origin  git@github.com:user_name/repository_name.git (fetch)  
+> origin  git@github.com:user_name/repository_name.git (fetch)
   origin  git@github.com:user_name/repository_name.git (push)
