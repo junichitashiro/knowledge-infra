@@ -1,8 +1,8 @@
 # Vagrant上のAlmaLinux9にWordPressをインストールする手順
 
-* 作業アカウント：vagrant
-* 使用DB：MariaDB
-* PHPのバージョンアップを実行しておく（[PHPバージョンアップ手順](https://github.com/junichitashiro/Knowledges/blob/master/OS/Linux/PHPバージョンアップ手順.md) 参照）
+- 作業アカウント：vagrant
+- 使用DB：MariaDB
+- PHPのバージョンアップを実行しておく（[PHPバージョンアップ手順](https://github.com/junichitashiro/Knowledges/blob/master/OS/Linux/PHPバージョンアップ手順.md) 参照）
 
 ---
 
@@ -125,7 +125,7 @@ create database wordpress;
 ### **dbuser** に データベース **wordpress** を変更する権限を付与する
 
 ```sql
-grant all privileges on wordpress.* to dbuser@localhost identified by 'dbuser1';
+-rant all privileges on wordpress.* to dbuser@localhost identified by 'dbuser1';
 ```
 
 > Query OK, 0 rows affected (0.00 sec)

@@ -1,7 +1,7 @@
 # 既存のPHPを削除してバージョンアップする手順
 
-* 作業アカウント：vagrant
-* wordpressインストール用の手順として作成
+- 作業アカウント：vagrant
+- wordpressインストール用の手順として作成
 
 ---
 
@@ -39,7 +39,7 @@ sudo dnf module reset php -y
 sudo dnf module list php
 ```
 
-* 一覧が表示されるので確認する（[d]はデフォルト）
+- 一覧が表示されるので確認する（[d]はデフォルト）
 
 ```
 Name  Stream   Profiles        Summary
@@ -66,10 +66,10 @@ sudo dnf install -y php php-cli php-fpm
 php -v
 ```
 
-> PHP 8.1.34 (cli) (built: Dec 16 2025 18:33:34) (NTS gcc x86_64)  
-> Copyright (c) The PHP Group  
-> Zend Engine v4.1.34, Copyright (c) Zend Technologies  
-> with Zend OPcache v8.1.34, Copyright (c), by Zend Technologies  
+> PHP 8.1.34 (cli) (built: Dec 16 2025 18:33:34) (NTS gcc x86_64)
+> Copyright (c) The PHP Group
+> Zend Engine v4.1.34, Copyright (c) Zend Technologies
+> with Zend OPcache v8.1.34, Copyright (c), by Zend Technologies
 
 ### PHP-FPMを起動する
 
@@ -121,7 +121,7 @@ sudo dnf install php php-fpm php-mysqlnd php-gd php-mbstring php-xml php-json ph
 php -m | grep -E 'mysqli|pdo_mysql'
 ```
 
-> mysqli  
+> mysqli
 > pdo_mysql
 
 ### Apacheと連携する場合の対応

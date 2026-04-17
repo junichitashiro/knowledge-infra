@@ -1,7 +1,7 @@
 # インストール後の環境整備手順
 
-* 作業アカウント：vagrant
-* 各種パッケージのバージョンは動作確認したものを記載
+- 作業アカウント：vagrant
+- 各種パッケージのバージョンは動作確認したものを記載
 
 ---
 
@@ -17,7 +17,7 @@ sudo dnf update -y
 sudo dnf -y install glibc-langpack-ja firewalld httpd
 ```
 
-* 本作業で必要となるパッケージがない前提でインストールする
+- 本作業で必要となるパッケージがない前提でインストールする
 
 ---
 
@@ -25,7 +25,7 @@ sudo dnf -y install glibc-langpack-ja firewalld httpd
 
 ### 任意のホスト名（dev-alma9）に変更する
 
-* **Vagrantfile** で指定している場合は不要
+- **Vagrantfile** で指定している場合は不要
 
 ```bash
 sudo hostnamectl set-hostname dev-alma9
@@ -55,7 +55,7 @@ sudo localectl set-locale LANG=ja_JP.UTF-8
 localectl status
 ```
 
-* 反映に再ログインか再起動が必要になる場合がある
+- 反映に再ログインか再起動が必要になる場合がある
 
 ```
 System Locale: LANG=ja_JP.UTF-8
@@ -113,7 +113,7 @@ sudo firewall-cmd --zone=public --add-service=ssh  --permanent
 
 > Warning: ALREADY_ENABLED: ssh
 
-* ログインしている時点で ssh は有効なのでエラーになる想定
+- ログインしている時点で ssh は有効なのでエラーになる想定
 
 ```bash
 sudo firewall-cmd --reload
@@ -162,7 +162,7 @@ systemctl status httpd
              └─82771 /usr/sbin/httpd -DFOREGROUND
 ```
 
-* ブラウザから **192.168.33.10** にアクセスすると "Web Server Test Page" が表示されることでも確認できる
+- ブラウザから **192.168.33.10** にアクセスすると "Web Server Test Page" が表示されることでも確認できる
 
 ---
 

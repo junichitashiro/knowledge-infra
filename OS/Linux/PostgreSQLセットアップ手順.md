@@ -1,7 +1,7 @@
 # PostgreSQLのセットアップ手順
 
-* 作業アカウント：vagrant
-* インストールバージョン：16
+- 作業アカウント：vagrant
+- インストールバージョン：16
 
 ---
 
@@ -23,8 +23,8 @@ sudo dnf -y remove postgresql
 
 ## インストール
 
-* 指定するリポジトリのURLはパッケージごとに異なり、下記サイトで確認できる。
-* [<https://yum.postgresql.org/repopackages.php#pg16>]
+- 指定するリポジトリのURLはパッケージごとに異なり、下記サイトで確認できる。
+- [<https://yum.postgresql.org/repopackages.php#pg16>]
 
 ### 公式リポジトリパッケージの追加
 
@@ -52,8 +52,8 @@ sudo dnf -y install postgresql16-server
 ls -l /usr/pgsql-16/
 ```
 
-> drwxr-xr-x. 2 root root 4096  3月  2 21:23 bin  
-> drwxr-xr-x. 3 root root 4096  3月  2 21:23 lib  
+> drwxr-xr-x. 2 root root 4096  3月  2 21:23 bin
+> drwxr-xr-x. 3 root root 4096  3月  2 21:23 lib
 > drwxr-xr-x. 7 root root 4096  3月  2 21:23 share
 
 ---
@@ -68,7 +68,7 @@ sudo /usr/pgsql-16/bin/postgresql-16-setup initdb
 
 > Initializing database ... OK
 
-* 初期化をやり直す場合は関連ファイルを削除してから行う
+- 初期化をやり直す場合は関連ファイルを削除してから行う
 
 ```bash
 sudo rm -fr /var/lib/pgsql
@@ -166,13 +166,13 @@ SELECT datname, datdba::regrole AS owner FROM pg_database ORDER BY datname;
 
 ## OSのpostgresユーザーにログインパスワードを設定する
 
-* インストール時に作成されるpostgresユーザーはパスワードが設定されていない
-* DB接続ツールを使うとき等、パスワードが必要になるため設定しておく
-* OSのpostgresユーザーとPostgreSQLのpostgresユーザーを混同しないように注意
+- インストール時に作成されるpostgresユーザーはパスワードが設定されていない
+- DB接続ツールを使うとき等、パスワードが必要になるため設定しておく
+- OSのpostgresユーザーとPostgreSQLのpostgresユーザーを混同しないように注意
 
 ### postgresユーザーにパスワードを設定する
 
-* rootで実行する
+- rootで実行する
 
 ```bash
 sudo passwd postgres
@@ -203,7 +203,7 @@ su - postgres
 psql
 ```
 
-> psql (16.13)  
+> psql (16.13)
 > "help"でヘルプを表示します。
 
 ### ユーザーpostgresにパスワード'postgres'を設定する
@@ -257,7 +257,7 @@ psql -U postgres
 Password for user postgres: # 設定したパスワードを入力
 ```
 
-> psql (16.13)  
+> psql (16.13)
 > Type "help" for help.
 
 ---
@@ -280,7 +280,7 @@ sudo dnf -y remove postgresql-libs
 
 ### postgresユーザーの削除
 
-* **-r** はユーザーの作成データを削除するオプション
+- **-r** はユーザーの作成データを削除するオプション
 
 ```bash
 sudo userdel -r postgres
