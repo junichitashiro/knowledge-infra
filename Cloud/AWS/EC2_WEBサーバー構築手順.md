@@ -7,7 +7,7 @@
 ## パブリックサブネットにEC2インスタンスを設置してWEBサーバーを構築する
 
 - Webサーバー用のインスタンスを作成する
-- 事前に [VPC_ネットワーク構築手順](https://github.com/junichitashiro/knowledge-infra/blob/main/Cloud/AWS/Cloud/AWS/VPC_ネットワーク構築手順.md) によるネットワークが作成されている前提とする
+- 事前に [VPC_ネットワーク構築手順](https://github.com/junichitashiro/knowledge-infra/blob/main/Cloud/AWS/VPC_ネットワーク構築手順.md) によるネットワークが作成されている前提とする
 - 作成したインスタンスに **Apache** をインストールする
 
 ---
