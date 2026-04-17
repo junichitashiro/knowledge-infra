@@ -2,15 +2,15 @@
 
 ## データベース情報
 
-* ユーザ名：postgres
-* データベース名：postgres
-* テーブル名：test_table（[サンプルテーブルの作成](https://github.com/junichitashiro/Knowledges/blob/master/DB/PostgreSQL/サンプルテーブルの作成.md) 参照）
-* パス：C:\Program Files\PostgreSQL\14\bin\
+- ユーザ名：postgres
+- データベース名：postgres
+- テーブル名：test_table（[サンプルテーブルの作成](https://github.com/junichitashiro/knowledge-infra/blob/main/DB/PostgreSQL/サンプルテーブルの作成.md) 参照）
+- パス：C:\Program Files\PostgreSQL\14\bin\
 
 ## バッチファイルの共通設定
 
-* 文字コード：SJIS
-* 改行コード：CRLF
+- 文字コード：SJIS
+- 改行コード：CRLF
 
 ---
 
@@ -33,8 +33,8 @@ select * from test_table where price = 270;
 
 ### バッチファイルの設定
 
-* -v オプションを指定する
-* SQLに渡す変数名（PRICE）と値（270）を設定する
+- -v オプションを指定する
+- SQLに渡す変数名（PRICE）と値（270）を設定する
 
 ```bat
 @echo off
@@ -61,8 +61,8 @@ rem --------------------------------------------------
 
 ### SQLファイルの設定
 
-* ファイル名：input.sql
-* 変数格納先：'変数名'で記述する
+- ファイル名：input.sql
+- 変数格納先：'変数名'で記述する
 
 ```sql
 select * from test_table where price = :'PRICE';
@@ -105,10 +105,10 @@ select * from test_table where price = 270 and cal = 10;
 
 ### 実行元となるバッチファイルの設定
 
-* input.txtから値を読み込んでSQLを繰り返し実行する
-  * 1,2,3列目の値をバッチの変数 i, j, k に格納している
-  * ヘッダの読み込みはスキップする
-* 結果は実行したSQLごとに外部ファイル（result_**.log）に出力する
+- input.txtから値を読み込んでSQLを繰り返し実行する
+  - 1,2,3列目の値をバッチの変数 i, j, k に格納している
+  - ヘッダの読み込みはスキップする
+- 結果は実行したSQLごとに外部ファイル（result_**.log）に出力する
 
 ```bat
 @echo off
@@ -146,7 +146,7 @@ no,price,cal
 
 ### 変数を受け取るinput.sqlの設定
 
-* **:'PRICE'** と **:'CAL'** で変数値を受け取る
+- **:'PRICE'** と **:'CAL'** で変数値を受け取る
 
 ```sql
 select * from test_table where price = :'PRICE' and cal = :'CAL';

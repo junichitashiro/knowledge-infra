@@ -2,15 +2,15 @@
 
 ## データベース情報
 
-* ユーザ名：postgres
-* データベース名：postgres
-* テーブル名：test_table（[サンプルテーブルの作成](https://github.com/junichitashiro/Knowledges/blob/master/DB/PostgreSQL/サンプルテーブルの作成.md) 参照）
-* パス：C:\Program Files\PostgreSQL\14\bin\
+- ユーザ名：postgres
+- データベース名：postgres
+- テーブル名：test_table（[サンプルテーブルの作成](https://github.com/junichitashiro/knowledge-infra/blob/main/DB/PostgreSQL/サンプルテーブルの作成.md) 参照）
+- パス：C:\Program Files\PostgreSQL\14\bin\
 
 ## バッチファイルの共通設定
 
-* 文字コード：SJIS
-* 改行コード：CRLF
+- 文字コード：SJIS
+- 改行コード：CRLF
 
 ---
 
@@ -18,9 +18,9 @@
 
 ### バッチファイルの設定
 
-* -c オプションで" "内にSQLを記述する
-* -o オプションで出力先を指定する
-  * ここではカレントディレクトリに **result.log** ファイルを出力する
+- -c オプションで" "内にSQLを記述する
+- -o オプションで出力先を指定する
+  - ここではカレントディレクトリに **result.log** ファイルを出力する
 
 ```bat
 @echo off
@@ -57,11 +57,11 @@ select * from test_table;
 
 ### バッチファイルの設定
 
-* **"\copy ("SQL文") to '出力パス' with csv delimiter ',' ;"** のコマンドを記述する
-  * 出力先はカレントディレクトリ
-* 追加設定
-  * nullを空白する
-  * ヘッダ出力あり
+- **"\copy ("SQL文") to '出力パス' with csv delimiter ',' ;"** のコマンドを記述する
+  - 出力先はカレントディレクトリ
+- 追加設定
+  - nullを空白する
+  - ヘッダ出力あり
 
 ```bat
 @echo off
@@ -89,8 +89,8 @@ rem --------------------------------------------------
 
 ### SQLの設定
 
-* ( )内に以下のSQLを記述している
-* 文末の ; は不要
+- ( )内に以下のSQLを記述している
+- 文末の ; は不要
 
 ```sql
 select * from test_table
