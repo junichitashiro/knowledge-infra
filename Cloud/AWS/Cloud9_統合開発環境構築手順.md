@@ -1,12 +1,12 @@
 # Cloud9_統合開発環境構築手順
 
-* 作業ユーザーのポリシータイプ：Cloud9User
+- 作業ユーザーのポリシータイプ：Cloud9User
 
 ---
 
 ## １．【IAM】での作業
 
-[IAM_ユーザー追加手順](https://github.com/junichitashiro/Knowledges/blob/master/Cloud/AWS/IAM_ユーザー追加手順.md) に従ってユーザーグループとユーザーを追加する
+[IAM_ユーザー追加手順](https://github.com/junichitashiro/knowledge-infra/blob/main/Cloud/AWS/Cloud/AWS/IAM_ユーザー追加手順.md) に従ってユーザーグループとユーザーを追加する
 
 ---
 
@@ -23,36 +23,36 @@
 2. Nameフィールドに名前（MyWorkspace）を設定して **次のステップ** へ進む
 
 3. サーバー設定：下記のAWS無料枠を想定した設定をして **Create environment** をクリックする
-    * Environment type：Create a new instance for environment (EC2)
-    * Instance type：t2.micro (1 GiB RAM + 1 vCPU)
-    * 他はデフォルト
+    - Environment type：Create a new instance for environment (EC2)
+    - Instance type：t2.micro (1 GiB RAM + 1 vCPU)
+    - 他はデフォルト
 
 ---
 
 ### 作成したサーバーにログインする
 
-* 上部メニューの **Cloud9アイコン** から **Go To Your Dashboard** をクリックすると作成した環境の一覧が表示される  
+- 上部メニューの **Cloud9アイコン** から **Go To Your Dashboard** をクリックすると作成した環境の一覧が表示される
 ここから追加作成や不要になった環境の削除ができる
 
 ---
 
 ### ターミナルで各種情報を表示してみる
 
-* カーネル情報
+- カーネル情報
 
   ```bash
   cat /proc/version
   # Linux version 4.14.181-108.257.amzn1.x86_64 (mockbuild@koji-pdx-corp-builder-64003) (gcc version 7.2.1 20170915 (Red Hat 7.2.1-2) (GCC)) #1 SMP Wed May 27 02:43:03 UTC 2020
   ```
 
-* MySQLのバージョン
+- MySQLのバージョン
 
   ```bash
   mysql --version
   # mysql  Ver 14.14 Distrib 5.5.62, for Linux (x86_64) using readline 5.1
   ```
 
-* PHPのバージョン
+- PHPのバージョン
 
   ```bash
   php -v
@@ -62,21 +62,21 @@
   #     with Xdebug v2.5.5, Copyright (c) 2002-2017, by Derick Rethans
   ```
 
-* Pythonのバージョン
+- Pythonのバージョン
 
   ```bash
   python -V
   # Python 3.6.10
   ```
 
-* Node.jsのバージョン
+- Node.jsのバージョン
 
   ```bash
   node -v
   # v10.21.0
   ```
 
-* RubyとRailsのバージョン
+- RubyとRailsのバージョン
 
   ```bash
   ruby -v
@@ -90,7 +90,7 @@
 
 ### OSを最新化する
 
-* yumで最新化処理を実行する
+- yumで最新化処理を実行する
 
   ```bash
   sudo yum -y update
@@ -100,7 +100,7 @@
 
 ### タイムゾーンを設定する
 
-* 設定ファイルを編集する
+- 設定ファイルを編集する
 
   ```bash
   sudo vi /etc/sysconfig/clock
@@ -111,19 +111,19 @@
   # --------------------------------------------------
   ```
 
-* 設定内容をローカルタイムに反映する
+- 設定内容をローカルタイムに反映する
 
   ```bash
   sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
   ```
 
-* 再起動する
+- 再起動する
 
   ```bash
   sudo reboot
   ```
 
-* 日付を表示して確認する
+- 日付を表示して確認する
 
   ```bash
   date
@@ -133,26 +133,26 @@
 
 ### MySQLを更新する
 
-* バージョンを表示して確認する
+- バージョンを表示して確認する
 
   ```bash
   mysql --version
   # mysql  Ver 14.14 Distrib 5.5.62, for Linux (x86_64) using readline 5.1
   ```
 
-* バージョン5.5を削除する
+- バージョン5.5を削除する
 
   ```bash
   sudo yum -y remove mysql-config mysql55-server mysql55-libs mysql55
   ```
 
-* バージョン5.7をインストールする
+- バージョン5.7をインストールする
 
   ```bash
   sudo yum -y install mysql57-server mysql57
   ```
 
-* 設定ファイルを編集する
+- 設定ファイルを編集する
 
   ```bash
   sudo vi /etc/my.cnf
@@ -166,38 +166,38 @@
   # --------------------------------------------------
   ```
 
-* サービスを開始する
+- サービスを開始する
 
   ```bash
   sudo service mysqld start
   ```
 
-* データベースを最新化する
+- データベースを最新化する
 
   ```bash
   sudo mysql_upgrade -u root --force
   ```
 
-* データベースを再起動する
+- データベースを再起動する
 
   ```bash
   sudo service mysqld restart
   ```
 
-* 自動起動の設定をする
+- 自動起動の設定をする
 
   ```bash
   sudo chkconfig mysqld on
   ```
 
-* バージョンを表示して確認する
+- バージョンを表示して確認する
 
   ```bash
   mysql --version
   # mysql  Ver 14.14 Distrib 5.7.28, for Linux (x86_64) using  EditLine wrapper
   ```
 
-* データベースにログインする
+- データベースにログインする
 
   ```bash
   mysql -u root
@@ -207,7 +207,7 @@
 
 ### PHPを更新する
 
-* バージョンを表示して確認する
+- バージョンを表示して確認する
 
   ```bash
   php -v
@@ -217,19 +217,19 @@
   #     with Xdebug v2.5.5, Copyright (c) 2002-2017, by Derick Rethans
   ```
 
-* PHP7.2をインストールする
+- PHP7.2をインストールする
 
   ```bash
   sudo yum -y install php72 php72-devel php72-mysqlnd php72-gd php72-intl php72-mbstring
   ```
 
-* PHPのバージョンを切り替える
+- PHPのバージョンを切り替える
 
   ```bash
   sudo update-alternatives --config php
   ```
 
-* 選択できるバージョンが表示されるので対象の番号（ここでは2）を選んでエンターキーを押下する
+- 選択できるバージョンが表示されるので対象の番号（ここでは2）を選んでエンターキーを押下する
 
   ```bash
   There are 2 programs which provide 'php'.
@@ -242,7 +242,7 @@
   Enter to keep the current selection[+], or type selection number: 2
   ```
 
-* バージョンを表示して確認する
+- バージョンを表示して確認する
 
   ```bash
   php -v
@@ -255,7 +255,7 @@
 
 ### Ruby on Rails を動かしてみる
 
-* バージョンを表示して確認する
+- バージョンを表示して確認する
 
   ```bash
   ruby -v
@@ -265,20 +265,20 @@
   # Rails 5.0.0
   ```
 
-* アプリケーションを新規作成する
+- アプリケーションを新規作成する
 
   ```bash
   rails new myapp
   # 実行後、各種ディレクトリやファイルが作成される
   ```
 
-* 作成されたアプリケーション用のディレクトリに移動する
+- 作成されたアプリケーション用のディレクトリに移動する
 
   ```bash
   cd myapp
   ```
 
-* 設定ファイルを編集する
+- 設定ファイルを編集する
 
   ```bash
   sudo vi Gemfile
@@ -293,44 +293,44 @@
   # --------------------------------------------------
   ```
 
-* gemをインストールする
+- gemをインストールする
 
   ```bash
   bundle install
   ```
 
-* サーバーを起動する
+- サーバーを起動する
 
   ```bash
   rails s
   ```
 
-* 上部メニューの **Preview** から **Preview Running Application** を選択する
+- 上部メニューの **Preview** から **Preview Running Application** を選択する
 
-* 接続拒否の画面が表示されるが右上の **Pop Out Into New Window** をクリックすると別ウィンドウで正しく表示される
+- 接続拒否の画面が表示されるが右上の **Pop Out Into New Window** をクリックすると別ウィンドウで正しく表示される
 
 ---
 
 ### Railsでアプリを作る
 
-* ターミナルからコマンドを実行してメモアプリを作成する
+- ターミナルからコマンドを実行してメモアプリを作成する
 
   ```bash
   rails g scaffold Memo title:string body:text
   ```
 
-* データベースに反映する
+- データベースに反映する
 
   ```bash
   rails db:migrate
   ```
 
-* サーバーを起動する
+- サーバーを起動する
 
   ```bash
   rails s
   ```
 
-* 上部メニューの **Preview** から **Preview Running Application** を選択する
+- 上部メニューの **Preview** から **Preview Running Application** を選択する
 
-* アドレスバーの末尾に **/memos** を加えてアクセスする
+- アドレスバーの末尾に **/memos** を加えてアクセスする
