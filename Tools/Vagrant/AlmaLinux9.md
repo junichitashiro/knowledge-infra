@@ -20,8 +20,8 @@ mkdir AlmaLinux
 cd AlmaLinux
 ```
 
-* このディレクトリ名がVirtualBoxの仮想マシン名に割り当てられる
-* **Vagrantfile** で指定した場合はそちらが割り当てられる
+- このディレクトリ名がVirtualBoxの仮想マシン名に割り当てられる
+- **Vagrantfile** で指定した場合はそちらが割り当てられる
 
 ---
 
@@ -39,7 +39,7 @@ vagrant box add {Box名} {BoxのURL}
 vagrant box add almalinux/9
 ```
 
-* VagrantCloud URL : https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/9
+- VagrantCloud URL : https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/9
 
 ### Boxを初期化する
 
@@ -48,7 +48,7 @@ vagrant box add almalinux/9
 vagrant init almalinux/9
 ```
 
-* 初期化すると Vagrantfile が作成される
+- 初期化すると Vagrantfile が作成される
 
 ---
 
@@ -76,9 +76,9 @@ Vagrant.configure('2') do |config|
 end
 ```
 
-* ブラウザからのWebサービス利用をするためIPアドレスを有効化
-* ホストとゲスト間で利用する共有フォルダを有効化
-* 上記の[VagrantCloud](https://portal.cloud.hashicorp.com/vagrant/discover/kalilinux/rolling)にもバージョン番号を含む手順が公開されている
+- ブラウザからのWebサービス利用をするためIPアドレスを有効化
+- ホストとゲスト間で利用する共有フォルダを有効化
+- 上記の[VagrantCloud](https://portal.cloud.hashicorp.com/vagrant/discover/kalilinux/rolling)にもバージョン番号を含む手順が公開されている
 
 ---
 
@@ -100,8 +100,8 @@ vagrant up
 vagrant ssh
 ```
 
-* ログインユーザ：vagrant
-* パスワード：vagrant
+- ログインユーザ：vagrant
+- パスワード：vagrant
 
 
 ### ホスト・ゲスト間のファイル共有に必要なカーネルモジュールをインストールする

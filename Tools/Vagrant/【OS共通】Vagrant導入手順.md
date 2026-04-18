@@ -6,9 +6,9 @@
 
 ### Windows
 
-* VirtualBoxのダウンロードページへアクセスする
-* https://www.virtualbox.org/wiki/Downloads
-* Windows hostsのリンクからインストーラをダウンロードして実行する
+- VirtualBoxのダウンロードページへアクセスする
+- https://www.virtualbox.org/wiki/Downloads
+- Windows hostsのリンクからインストーラをダウンロードして実行する
 
 ### Mac
 
@@ -36,9 +36,9 @@ VirtualBox --version
 
 ### Windows
 
-* 下記Vagrantのダウンロードページへアクセスする
-* http://www.vagrantup.com/downloads.html
-* WINDOWSカテゴリから対象bit数のインストーラをダウンロードして実行する
+- 下記Vagrantのダウンロードページへアクセスする
+- http://www.vagrantup.com/downloads.html
+- WINDOWSカテゴリから対象bit数のインストーラをダウンロードして実行する
 
 ### Mac
 
@@ -60,6 +60,6 @@ brew cask reinstall vagrant
 
 ## Boxイメージの検索
 
-* [Box公開ページ](https://portal.cloud.hashicorp.com/vagrant/discover) へアクセスする
-* 追加したいBoxイメージを検索する
-* 検索結果よりイメージの概要と追加手順が確認できる
+- [Box公開ページ](https://portal.cloud.hashicorp.com/vagrant/discover) へアクセスする
+- 追加したいBoxイメージを検索する
+- 検索結果よりイメージの概要と追加手順が確認できる
