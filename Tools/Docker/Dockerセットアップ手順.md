@@ -1,9 +1,9 @@
 # Dockerセットアップ手順
 
-* インストール環境：Windows11
-* wsl2導入済み
-* 使用イメージ：MySQL公式
-* コマンドラインはPowerShellから実行
+- インストール環境：Windows11
+- wsl2導入済み
+- 使用イメージ：MySQL公式
+- コマンドラインはPowerShellから実行
 
 ---
 
@@ -13,9 +13,9 @@
 
 #### インストール
 
-* 下記ダウンロードページにアクセスする
-* https://docs.docker.com/desktop/install/windows-install/
-* インストーラをダウンロードして実行する
+- 下記ダウンロードページにアクセスする
+- https://docs.docker.com/desktop/install/windows-install/
+- インストーラをダウンロードして実行する
 
 ### インストール後の確認
 
@@ -35,12 +35,12 @@ docker --version
 
 #### コンテナイメージを検索する
 
-* 下記コンテナイメージ配布ページへアクセスする
-* https://hub.docker.com/
-* Docker Official Image をクリックする
-* MySQLを検索する
-* 検索結果から対象をクリックする
-* pull コマンドをコピーする
+- 下記コンテナイメージ配布ページへアクセスする
+- https://hub.docker.com/
+- Docker Official Image をクリックする
+- MySQLを検索する
+- 検索結果から対象をクリックする
+- pull コマンドをコピーする
 
 #### コンテナイメージを取得する
 
@@ -48,21 +48,21 @@ docker --version
 docker pull mysql
 ```
 
-> Using default tag: latest  
-  latest: Pulling from library/mysql  
-  07bc88e18c4a: Pull complete  
-  1a9c1668bf49: Pull complete  
-  1021dda8eecf: Pull complete  
-  fb61b56acac1: Pull complete  
-  0bca83908a5b: Pull complete  
-  165e8b3d37ca: Pull complete  
-  3e1b086f1295: Pull complete  
-  dba651668484: Pull complete  
-  ed90f5355e12: Pull complete  
-  0412f59ab2b5: Pull complete  
-  Digest: sha256:aa021e164da6aacbefc59ed0b933427e4835636be380f3b6523f4a6c9564e1f0  
-  Status: Downloaded newer image for mysql:latest  
-  docker.io/library/mysql:latest  
+> Using default tag: latest
+  latest: Pulling from library/mysql
+  07bc88e18c4a: Pull complete
+  1a9c1668bf49: Pull complete
+  1021dda8eecf: Pull complete
+  fb61b56acac1: Pull complete
+  0bca83908a5b: Pull complete
+  165e8b3d37ca: Pull complete
+  3e1b086f1295: Pull complete
+  dba651668484: Pull complete
+  ed90f5355e12: Pull complete
+  0412f59ab2b5: Pull complete
+  Digest: sha256:aa021e164da6aacbefc59ed0b933427e4835636be380f3b6523f4a6c9564e1f0
+  Status: Downloaded newer image for mysql:latest
+  docker.io/library/mysql:latest
 
 #### 取得済みコンテナイメージを表示する
 
@@ -128,15 +128,15 @@ docker exec -it test-mysql bash
 bash-5.1# mysql -u root -p
 Enter password:*****
 ```
-> Welcome to the MySQL monitor.  Commands end with ; or \g.  
-> Your MySQL connection id is 9  
-> Server version: 8.4.0 MySQL Community Server - GPL  
+> Welcome to the MySQL monitor.  Commands end with ; or \g.
+> Your MySQL connection id is 9
+> Server version: 8.4.0 MySQL Community Server - GPL
 >
-> Copyright (c) 2000, 2024, Oracle and/or its affiliates.  
+> Copyright (c) 2000, 2024, Oracle and/or its affiliates.
 >
-> Oracle is a registered trademark of Oracle Corporation and/or its  
-> affiliates. Other names may be trademarks of their respective  
-> owners.  
+> Oracle is a registered trademark of Oracle Corporation and/or its
+> affiliates. Other names may be trademarks of their respective
+> owners.
 >
 > Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
@@ -237,7 +237,7 @@ cnx = mysql.connector.connect(
     port='13306'
 )
 cursor = cnx.cursor()
-cursor.execute('select * from test_db.users')
+cursor.execute('select - from test_db.users')
 
 for id, name in cursor:
     print(f'{id}: {name}')
@@ -270,19 +270,19 @@ docker rm test-mysql
 docker rmi mysql:latest
 ```
 
-> Untagged: mysql:latest  
-> Untagged: mysql@sha256:aa021e164da6aacbefc59ed0b933427e4835636be380f3b6523f4a6c9564e1f0  
-> Deleted: sha256:fcd86ff8ce8c2d30f02607e184cbfd73eb581e22a451e4a1847a102318bc2926  
-> Deleted: sha256:0473b1cea4a7e4fd89e77021d9bd0072d9fe8e88bfa7b2ceb4938374dc89cc72  
-> Deleted: sha256:cec8ab251255c88df5a1765571d8d5b3f6f124f5c74da94669df8d69a712bba5  
-> Deleted: sha256:1ec27ee04d25505ec12280cda84841c553e26d007d453d05afad31f91ab42c79  
-> Deleted: sha256:a927878056aed598dadbb50c1c5d8f8b973f6bceb3562b2168346f93bc033416  
-> Deleted: sha256:7cc2dba4d94e1ea28f8e85d457316210d2188afb659888168d1bc3e63204ba23  
-> Deleted: sha256:63d0771032fba062bf73f65afd1d24e0948db53d5e721e46eb85af062dedfd62  
-> Deleted: sha256:9031ef0ca7a6fa1f7051740d8342cc875feea831fc7cc95ccf931fdf8123c23f  
-> Deleted: sha256:e8af93b4c6fe9b15c33180ed63c16a2174ba1a36680bb961fc78c80a9961fece  
-> Deleted: sha256:b7e9107eb2df7323cdf4126ecb94412f1067730600e1c49b54cf22b765f86484  
-> Deleted: sha256:0e2e8dd6d8eb63eedba9435b25b3d4c3036f9508f45fe608986efd8ac274f2a8  
+> Untagged: mysql:latest
+> Untagged: mysql@sha256:aa021e164da6aacbefc59ed0b933427e4835636be380f3b6523f4a6c9564e1f0
+> Deleted: sha256:fcd86ff8ce8c2d30f02607e184cbfd73eb581e22a451e4a1847a102318bc2926
+> Deleted: sha256:0473b1cea4a7e4fd89e77021d9bd0072d9fe8e88bfa7b2ceb4938374dc89cc72
+> Deleted: sha256:cec8ab251255c88df5a1765571d8d5b3f6f124f5c74da94669df8d69a712bba5
+> Deleted: sha256:1ec27ee04d25505ec12280cda84841c553e26d007d453d05afad31f91ab42c79
+> Deleted: sha256:a927878056aed598dadbb50c1c5d8f8b973f6bceb3562b2168346f93bc033416
+> Deleted: sha256:7cc2dba4d94e1ea28f8e85d457316210d2188afb659888168d1bc3e63204ba23
+> Deleted: sha256:63d0771032fba062bf73f65afd1d24e0948db53d5e721e46eb85af062dedfd62
+> Deleted: sha256:9031ef0ca7a6fa1f7051740d8342cc875feea831fc7cc95ccf931fdf8123c23f
+> Deleted: sha256:e8af93b4c6fe9b15c33180ed63c16a2174ba1a36680bb961fc78c80a9961fece
+> Deleted: sha256:b7e9107eb2df7323cdf4126ecb94412f1067730600e1c49b54cf22b765f86484
+> Deleted: sha256:0e2e8dd6d8eb63eedba9435b25b3d4c3036f9508f45fe608986efd8ac274f2a8
 
 #### コンテナイメージを表示して確認する
 
