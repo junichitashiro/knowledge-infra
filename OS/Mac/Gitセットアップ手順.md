@@ -1,14 +1,14 @@
-# Git をセットアップし GitHub リポジトリと連携する手順
+# GitをセットアップしGitHubリポジトリと連携する手順
 
-## 1. Homebrew をインストール
+## 1. Homebrewをインストールする
 
-### Homebrewがインストールされていない場合はインストールする
+- Homebrewがインストールされていない場合はインストールする
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Homebrew が正常に動作することを確認する
+- Homebrewが正常に動作することを確認する
 
 ```bash
 brew -v
@@ -18,15 +18,15 @@ brew -v
 
 ---
 
-## 2. Homebrew で Git をインストール
+## 2. HomebrewでGitをインストールする
 
-### Git をインストールする
+- Gitをインストールする
 
 ```bash
 brew install git
 ```
 
-### Git のバージョンを確認する
+- Gitのバージョンを確認する
 
 ```bash
 git --version
@@ -36,37 +36,37 @@ git --version
 
 ---
 
-## 3. SSH キーの作成と GitHub への登録
+## 3. GitHub認証用のSSHキーを作成する
 
-### GitHub との認証に SSH を使用するため、SSH キーを作成する
+- SSHキー作成コマンド
 
 ```bash
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
-### プロンプトが表示されたら、次のように対応する
+- SSHキーの保存先を選択する
 
-```bash
-Enter file in which to save the key
-```
+> Enter file in which to save the key
 
- → `Enter`（デフォルトの `~/.ssh/id_rsa` を使用する）
+→ `Enter`（デフォルトの `~/.ssh/id_rsa` を使用する）
 
-```bash
-Enter passphrase (empty for no passphrase)
-```
+- SSHキー使用時のパスフレーズを設定する
 
- → 任意のパスフレーズを入力するか、そのまま `Enter`
+> Enter passphrase (empty for no passphrase)
 
-```bash
-Enter same passphrase again
-```
+→ 任意のパスフレーズを入力するか、そのまま `Enter`
 
- → 同じパスフレーズを再入力
+- 確認入力
 
-### SSH キーを GitHub に登録する
+> Enter same passphrase again
 
-#### 公開鍵をクリップボードにコピーしておく
+→ 同じパスフレーズを再入力
+
+---
+
+## 4. SSH キーを GitHub に登録する
+
+- 公開鍵をクリップボードにコピーしておく
 
 ```bash
 pbcopy < ~/.ssh/id_rsa.pub
@@ -90,43 +90,50 @@ ssh -T git@github.com
 
 ---
 
-## 4. Git の初期設定
+## 5. Git初期設定をする
 
-### Git のユーザー名とメールアドレスを設定する
+- ユーザー名とメールアドレスを設定する
 
 ```bash
 git config --global user.name "GitHubのアカウント名"
 git config --global user.email "GitHubで設定しているメールアドレス"
 ```
 
-### 設定を確認する
+- 設定を確認する
 
 ```bash
 git config --global --list
 ```
 
-> user.name=Your Name
+> user.name=Your Name  \
   user.email=your_email@address.com
 
 ---
 
-## 5. GitHub リポジトリのクローン
+## 6. GitHubリモートリポジトリをクローンする
 
-### SSH で GitHub のリポジトリをローカルにクローンする
-
-#### GitHub のリポジトリページで `<> Code▼` をクリックし、SSH の URL をコピーする
+- GitHubのリポジトリページで `<> Code▼` をクリックし、SSHのURLをコピーする
 
 ```bash
 git clone git@github.com:user_name/repository_name.git
 ```
 
-### リモートリポジトリの設定を確認する
+- クローンしたリポジトリフォルダでリモートURLを設定（変更）する
 
-- クローンしたリポジトリフォルダで実行する
+```bash
+cd repository_name
+git remote set-url origin git@github.com:user_name/repository_name.git
+```
+
+> push 先がこの `repository_name` になる
+
+- リモートリポジトリの設定を確認する
 
 ```bash
 git remote -v
 ```
 
-> origin  git@github.com:user_name/repository_name.git (fetch)
+> origin  git@github.com:user_name/repository_name.git (fetch).  \
   origin  git@github.com:user_name/repository_name.git (push)
+
+- ここで表示が `origin	https://github.com` ではなく `origin  git@github.com:` となっていれば認証にSSHキーが使われている
